@@ -1,0 +1,11 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [
+		{
+ 			"source": "/node/(.*)",
+ 			"destination": "movienode-backend",
+ 			"csrfProtection": false
+ 		}
+	]
+}

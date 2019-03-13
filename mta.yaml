@@ -1,12 +1,20 @@
 ID: sapchatbot
 _schema-version: '2.1'
 version: 0.0.1
-
 modules:
- - name: movienode
-   type: nodejs
-   path: movienode
-   provides:
-    - name: movienode_api
-      properties:
-         url: ${default-url}
+  - name: movienode
+    type: nodejs
+    path: movienode
+    provides:
+      - name: movienode_api
+        properties:
+          url: '${default-url}'
+  - name: web
+    type: html5
+    path: web
+    requires:
+      - name: movienode_api
+        group: destinations
+        properties:
+          name: movienode-backend
+          url: '~{url}'
